@@ -4,6 +4,7 @@ namespace Messages
 {
     public interface IAddToCartCommand : ICommand
     {
-        Cart Item { get; set; }
+        string CartId { get; set; }
+        int AlbumId { get; set; }
     }
 }

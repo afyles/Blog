@@ -1,9 +1,11 @@
 ﻿using MvcMusicStore.Models;
+using System;
 
 namespace Messages
 {
-    public class PlaceOrderCommand : ICommand
+    public interface IPlaceOrderCommand : ICommand
     {
-        public ShoppingCart Cart { get; set; }
+        String CartId { get; set; }
+        Int32 OrderId { get; set; }
     }
 }

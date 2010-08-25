@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMusicStore", "MvcMusicStore\MvcMusicStore.csproj", "{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{907334AE-25D1-4419-8FA0-65ACEB3AD312}"
+	ProjectSection(SolutionItems) = preProject
+		..\References\log4net.dll = ..\References\log4net.dll
+		..\References\NServiceBus.Core.dll = ..\References\NServiceBus.Core.dll
+		..\References\NServiceBus.Core.pdb = ..\References\NServiceBus.Core.pdb
+		..\References\NServiceBus.dll = ..\References\NServiceBus.dll
+		..\References\NServiceBus.Host.exe = ..\References\NServiceBus.Host.exe
+		..\References\NServiceBus.Host.pdb = ..\References\NServiceBus.Host.pdb
+		..\References\NServiceBus.pdb = ..\References\NServiceBus.pdb
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreCommandHandler", "StoreCommandHandler\StoreCommandHandler.csproj", "{1AA8DE3F-D1CF-4A24-AB77-F77B624B7684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{DE8D5C9A-17AF-4A5F-8F29-C8BA1B8AC4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{10C65115-D4AC-41C4-94DE-1852FF69C518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA8DE3F-D1CF-4A24-AB77-F77B624B7684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA8DE3F-D1CF-4A24-AB77-F77B624B7684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA8DE3F-D1CF-4A24-AB77-F77B624B7684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA8DE3F-D1CF-4A24-AB77-F77B624B7684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8D5C9A-17AF-4A5F-8F29-C8BA1B8AC4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8D5C9A-17AF-4A5F-8F29-C8BA1B8AC4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8D5C9A-17AF-4A5F-8F29-C8BA1B8AC4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8D5C9A-17AF-4A5F-8F29-C8BA1B8AC4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C65115-D4AC-41C4-94DE-1852FF69C518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C65115-D4AC-41C4-94DE-1852FF69C518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C65115-D4AC-41C4-94DE-1852FF69C518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C65115-D4AC-41C4-94DE-1852FF69C518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

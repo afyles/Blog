@@ -29,6 +29,27 @@ namespace MvcMusicStore.Controllers
             return View(viewModel);
         }
 
+        // AF - we have to add this b/c our cart item doesn't show up right away, but we can show the album we just added
+        public ActionResult AddedItemToCart(int id)
+        {
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            // Retrieve the album from the database
+            var addedAlbum = storeDB.Albums
+                .Single(album => album.AlbumId == id);
+
+            // Set up our ViewModel
+            var viewModel = new ShoppingCartViewModel
+            {
+                CartItems = new System.Collections.Generic.List<Cart>(),
+                CartTotal = cart.GetTotal() + addedAlbum.Price
+            };
+
+            viewModel.CartItems.Add(new Cart { Album = addedAlbum, AlbumId = addedAlbum.AlbumId, Count = 1 });
+
+            return View(viewModel);
+        }
+
         //
         // GET: /Store/AddToCart/5
 
@@ -41,18 +62,16 @@ namespace MvcMusicStore.Controllers
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
-
-            //cart.AddToCart(addedAlbum);
-
+            
             Helpers.ServiceAgent<IAddToCartCommand>.Send(
                 c => 
                 {
                     c.CartId = cart.GetCartId(this.HttpContext);
                     c.AlbumId = addedAlbum.AlbumId;
                 });
-           
+
             // Go back to the main store page for more shopping
-            return RedirectToAction("Index");
+            return RedirectToAction("AddedItemToCart", new { id = addedAlbum.AlbumId } );
         }
 
         //

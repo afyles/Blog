@@ -37,16 +37,7 @@ namespace MvcMusicStore.Controllers
                 }
                 else
                 {
-                    //order.Username = User.Identity.Name;
-                    //order.OrderDate = DateTime.Now;
-
-                    //Save Order
-                    //storeDB.AddToOrders(order);
-                    //storeDB.SaveChanges();
-
-                    //Process the order
                     var cart = ShoppingCart.GetCart(this.HttpContext);
-                    //cart.CreateOrder(order);
 
                     Int32 syntheticId = Helpers.IdGenerator.Generate();
 
@@ -55,12 +46,12 @@ namespace MvcMusicStore.Controllers
                         {
                             c.OrderId = syntheticId;
                             c.CartId = cart.GetCartId(this.HttpContext);
+                            c.UserId = User.Identity.Name;
                         });
 
                     
                     
-                    return RedirectToAction("Complete", 
-                        new { id = syntheticId });
+                    return RedirectToAction("Complete",  new { id = syntheticId });
                 }
 
             }
@@ -76,19 +67,21 @@ namespace MvcMusicStore.Controllers
 
         public ActionResult Complete(int id)
         {
-            // Validate customer owns this order
-            bool isValid = storeDB.Orders.Any(
-                o => o.OrderId == id &&
-                o.Username == User.Identity.Name);
+            //// Validate customer owns this order
+            //bool isValid = storeDB.Orders.Any(
+            //    o => o.OrderId == id &&
+            //    o.Username == User.Identity.Name);
 
-            if (isValid)
-            {
-                return View(id);
-            }
-            else
-            {
-                return View("Error");
-            }
+            //if (isValid)
+            //{
+            //    return View(id);
+            //}
+            //else
+            //{
+            //    return View("Error");
+            //}
+
+            return View(id);
         }
     }
 }

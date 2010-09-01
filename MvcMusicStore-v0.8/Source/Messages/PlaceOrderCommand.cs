@@ -7,5 +7,6 @@ namespace Messages
     {
         String CartId { get; set; }
         Int32 OrderId { get; set; }
+        String UserId { get; set; }
     }
 }

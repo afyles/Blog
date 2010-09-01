@@ -11,6 +11,13 @@ namespace MvcMusicStore.Models
         string shoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
 
+        public ShoppingCart() { }
+
+        public ShoppingCart( string shoppingCartId )
+        {
+            this.shoppingCartId = shoppingCartId;
+        }
+
         public static ShoppingCart GetCart(HttpContextBase context)
         {
             var cart = new ShoppingCart();

@@ -10,8 +10,10 @@
           <EntitySet Name="Artist" EntityType="MvcMusicStoreModel.Store.Artist" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Cart" EntityType="MvcMusicStoreModel.Store.Cart" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Genre" EntityType="MvcMusicStoreModel.Store.Genre" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InventoryPositions" EntityType="MvcMusicStoreModel.Store.InventoryPositions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Order" EntityType="MvcMusicStoreModel.Store.Order" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OrderDetail" EntityType="MvcMusicStoreModel.Store.OrderDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShippingNotes" EntityType="MvcMusicStoreModel.Store.ShippingNotes" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK__Album__ArtistId__276EDEB3" Association="MvcMusicStoreModel.Store.FK__Album__ArtistId__276EDEB3">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="Album" EntitySet="Album" />
@@ -27,6 +29,10 @@
           <AssociationSet Name="FK_Cart_Album" Association="MvcMusicStoreModel.Store.FK_Cart_Album">
             <End Role="Album" EntitySet="Album" />
             <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventoryPositions_Album" Association="MvcMusicStoreModel.Store.FK_InventoryPositions_Album">
+            <End Role="Album" EntitySet="Album" />
+            <End Role="InventoryPositions" EntitySet="InventoryPositions" />
           </AssociationSet>
           <AssociationSet Name="FK_InvoiceLine_Album" Association="MvcMusicStoreModel.Store.FK_InvoiceLine_Album">
             <End Role="Album" EntitySet="Album" />
@@ -69,6 +75,15 @@
           <Property Name="Name" Type="nvarchar" MaxLength="120" />
           <Property Name="Description" Type="nvarchar" />
         </EntityType>
+        <EntityType Name="InventoryPositions">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Name="PositionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BalanceOnHand" Type="int" />
+          <Property Name="BalanceOnOrder" Type="int" />
+          <Property Name="AlbumId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderId" />
@@ -96,6 +111,21 @@
           <Property Name="AlbumId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="UnitPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ShippingNotes">
+          <Key>
+            <PropertyRef Name="ShippingNoteId" />
+          </Key>
+          <Property Name="ShippingNoteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="50" />
+          <Property Name="ShippedQuantity" Type="int" />
+          <Property Name="BackOrderQuantity" Type="int" />
         </EntityType>
         <Association Name="FK__Album__ArtistId__276EDEB3">
           <End Role="Artist" Type="MvcMusicStoreModel.Store.Artist" Multiplicity="1" />
@@ -145,6 +175,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InventoryPositions_Album">
+          <End Role="Album" Type="MvcMusicStoreModel.Store.Album" Multiplicity="1" />
+          <End Role="InventoryPositions" Type="MvcMusicStoreModel.Store.InventoryPositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Album">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="InventoryPositions">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_InvoiceLine_Album">
           <End Role="Album" Type="MvcMusicStoreModel.Store.Album" Multiplicity="1" />
           <End Role="OrderDetail" Type="MvcMusicStoreModel.Store.OrderDetail" Multiplicity="*" />
@@ -188,6 +230,12 @@
             <End Role="Order" EntitySet="Orders" />
             <End Role="OrderDetail" EntitySet="OrderDetails" />
           </AssociationSet>
+          <EntitySet Name="InventoryPositions" EntityType="MvcMusicStoreModel.InventoryPosition" />
+          <EntitySet Name="ShippingNotes" EntityType="MvcMusicStoreModel.ShippingNote" />
+          <AssociationSet Name="FK_InventoryPositions_Album" Association="MvcMusicStoreModel.FK_InventoryPositions_Album">
+            <End Role="Album" EntitySet="Albums" />
+            <End Role="InventoryPosition" EntitySet="InventoryPositions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -203,6 +251,7 @@
           <NavigationProperty Name="Genre" Relationship="MvcMusicStoreModel.FK_Album_Genre" FromRole="Album" ToRole="Genre" />
           <NavigationProperty Name="Carts" Relationship="MvcMusicStoreModel.FK_Cart_Album" FromRole="Album" ToRole="Cart" />
           <NavigationProperty Name="OrderDetails" Relationship="MvcMusicStoreModel.FK_InvoiceLine_Album" FromRole="Album" ToRole="OrderDetail" />
+          <NavigationProperty Name="InventoryPositions" Relationship="MvcMusicStoreModel.FK_InventoryPositions_Album" FromRole="Album" ToRole="InventoryPosition" />
         </EntityType>
         <EntityType Name="Artist">
           <Key>
@@ -327,6 +376,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="InventoryPosition">
+          <Key>
+            <PropertyRef Name="PositionId" />
+          </Key>
+          <Property Type="Int32" Name="PositionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BalanceOnHand" />
+          <Property Type="Int32" Name="BalanceOnOrder" />
+          <Property Type="Int32" Name="AlbumId" Nullable="false" />
+          <NavigationProperty Name="Album" Relationship="MvcMusicStoreModel.FK_InventoryPositions_Album" FromRole="InventoryPosition" ToRole="Album" />
+        </EntityType>
+        <EntityType Name="ShippingNote">
+          <Key>
+            <PropertyRef Name="ShippingNoteId" />
+          </Key>
+          <Property Type="Int32" Name="ShippingNoteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ShippedQuantity" />
+          <Property Type="Int32" Name="BackOrderQuantity" />
+        </EntityType>
+        <Association Name="FK_InventoryPositions_Album">
+          <End Type="MvcMusicStoreModel.Album" Role="Album" Multiplicity="1" />
+          <End Type="MvcMusicStoreModel.InventoryPosition" Role="InventoryPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Album">
+              <PropertyRef Name="AlbumId" />
+            </Principal>
+            <Dependent Role="InventoryPosition">
+              <PropertyRef Name="AlbumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -391,6 +477,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="InventoryPositions">
+            <EntityTypeMapping TypeName="MvcMusicStoreModel.InventoryPosition">
+              <MappingFragment StoreEntitySet="InventoryPositions">
+                <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+                <ScalarProperty Name="BalanceOnOrder" ColumnName="BalanceOnOrder" />
+                <ScalarProperty Name="BalanceOnHand" ColumnName="BalanceOnHand" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShippingNotes">
+            <EntityTypeMapping TypeName="MvcMusicStoreModel.ShippingNote">
+              <MappingFragment StoreEntitySet="ShippingNotes">
+                <ScalarProperty Name="BackOrderQuantity" ColumnName="BackOrderQuantity" />
+                <ScalarProperty Name="ShippedQuantity" ColumnName="ShippedQuantity" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ShippingNoteId" ColumnName="ShippingNoteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -416,19 +528,17 @@
         <EntityTypeShape EntityType="MvcMusicStoreModel.Artist" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcMusicStoreModel.Genre" Width="1.5" PointX="2.75" PointY="4.125" Height="1.7879850260416657" IsExpanded="true" />
         <AssociationConnector Association="MvcMusicStoreModel.FK__Album__ArtistId__276EDEB3" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.5" PointY="2.3456835937499996" />
-          <ConnectorPoint PointX="3.5" PointY="2.7961319768079647" />
-          <ConnectorPoint PointX="4.625" PointY="2.7961319768079647" />
+          <ConnectorPoint PointX="4.25" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="4.625" PointY="1.5478417968749998" />
         </AssociationConnector>
         <AssociationConnector Association="MvcMusicStoreModel.FK_Album_Genre" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.5" PointY="4.125" />
-          <ConnectorPoint PointX="3.5" PointY="3.1037653333272126" />
-          <ConnectorPoint PointX="4.625" PointY="3.1037653333272126" />
+          <ConnectorPoint PointX="4.25" PointY="4.125" />
+          <ConnectorPoint PointX="4.625" PointY="3.7590950520833335" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MvcMusicStoreModel.Cart" Width="1.5" PointX="4.5" PointY="4.75" Height="2.1725878906250031" />
         <AssociationConnector Association="MvcMusicStoreModel.FK_Cart_Album" >
-          <ConnectorPoint PointX="5.3125" PointY="3.566793619791667" />
-          <ConnectorPoint PointX="5.3125" PointY="4.75" />
+          <ConnectorPoint PointX="5.3437525" PointY="3.7590950520833331" />
+          <ConnectorPoint PointX="5.3437525" PointY="4.75" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MvcMusicStoreModel.Order" Width="1.5" PointX="6.5" PointY="3.375" Height="3.7109993489583317" />
         <EntityTypeShape EntityType="MvcMusicStoreModel.OrderDetail" Width="1.5" PointX="6.5" PointY="0.625" Height="2.3648893229166674" />
@@ -439,6 +549,12 @@
         <AssociationConnector Association="MvcMusicStoreModel.FK__InvoiceLi__Invoi__2F10007B" >
           <ConnectorPoint PointX="7.25" PointY="3.375" />
           <ConnectorPoint PointX="7.25" PointY="2.9898893229166674" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="MvcMusicStoreModel.InventoryPosition" Width="1.75" PointX="0.625" PointY="1.625" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.ShippingNote" Width="1.5" PointX="0.5" PointY="4" Height="2.9417936197916674" />
+        <AssociationConnector Association="MvcMusicStoreModel.FK_InventoryPositions_Album" >
+          <ConnectorPoint PointX="4.625" PointY="3.0067350260416656" />
+          <ConnectorPoint PointX="2.375" PointY="3.0067350260416656" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

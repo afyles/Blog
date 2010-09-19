@@ -7,6 +7,8 @@ namespace StoreCommandHandler
 {
     public class IPlaceOrderHandler : IHandleMessages<IPlaceOrderCommand>
     {
+        public IBus Bus { get; set; }
+
         public void Handle(IPlaceOrderCommand message)
         {
             MusicStoreEntities storeDB = new MusicStoreEntities();
@@ -25,6 +27,8 @@ namespace StoreCommandHandler
             var cart = new ShoppingCart(message.CartId);
 
             cart.CreateOrder(order);
+
+            this.Bus.Publish<IOrderAcceptedEvent>( o => o.OrderId = order.OrderId);
         }
     }
 }

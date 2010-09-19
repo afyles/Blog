@@ -1,0 +1,8 @@
+﻿namespace ShippingSubscriber
+{
+    using NServiceBus;
+
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server
+    {
+    }
+}

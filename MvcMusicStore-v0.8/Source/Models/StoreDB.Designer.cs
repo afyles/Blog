@@ -23,6 +23,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MvcMusicStoreModel", "FK_Cart_Album", "Album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcMusicStore.Models.Album), "Cart", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcMusicStore.Models.Cart), true)]
 [assembly: EdmRelationshipAttribute("MvcMusicStoreModel", "FK_InvoiceLine_Album", "Album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcMusicStore.Models.Album), "OrderDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcMusicStore.Models.OrderDetail), true)]
 [assembly: EdmRelationshipAttribute("MvcMusicStoreModel", "FK__InvoiceLi__Invoi__2F10007B", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcMusicStore.Models.Order), "OrderDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcMusicStore.Models.OrderDetail), true)]
+[assembly: EdmRelationshipAttribute("MvcMusicStoreModel", "FK_InventoryPositions_Album", "Album", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MvcMusicStore.Models.Album), "InventoryPosition", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MvcMusicStore.Models.InventoryPosition), true)]
 
 #endregion
 
@@ -169,6 +170,38 @@ namespace MvcMusicStore.Models
             }
         }
         private ObjectSet<OrderDetail> _OrderDetails;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<InventoryPosition> InventoryPositions
+        {
+            get
+            {
+                if ((_InventoryPositions == null))
+                {
+                    _InventoryPositions = base.CreateObjectSet<InventoryPosition>("InventoryPositions");
+                }
+                return _InventoryPositions;
+            }
+        }
+        private ObjectSet<InventoryPosition> _InventoryPositions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ShippingNote> ShippingNotes
+        {
+            get
+            {
+                if ((_ShippingNotes == null))
+                {
+                    _ShippingNotes = base.CreateObjectSet<ShippingNote>("ShippingNotes");
+                }
+                return _ShippingNotes;
+            }
+        }
+        private ObjectSet<ShippingNote> _ShippingNotes;
 
         #endregion
         #region AddTo Methods
@@ -219,6 +252,22 @@ namespace MvcMusicStore.Models
         public void AddToOrderDetails(OrderDetail orderDetail)
         {
             base.AddObject("OrderDetails", orderDetail);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the InventoryPositions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToInventoryPositions(InventoryPosition inventoryPosition)
+        {
+            base.AddObject("InventoryPositions", inventoryPosition);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ShippingNotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToShippingNotes(ShippingNote shippingNote)
+        {
+            base.AddObject("ShippingNotes", shippingNote);
         }
 
         #endregion
@@ -528,6 +577,28 @@ namespace MvcMusicStore.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OrderDetail>("MvcMusicStoreModel.FK_InvoiceLine_Album", "OrderDetail", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MvcMusicStoreModel", "FK_InventoryPositions_Album", "InventoryPosition")]
+        public EntityCollection<InventoryPosition> InventoryPositions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<InventoryPosition>("MvcMusicStoreModel.FK_InventoryPositions_Album", "InventoryPosition");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<InventoryPosition>("MvcMusicStoreModel.FK_InventoryPositions_Album", "InventoryPosition", value);
                 }
             }
         }
@@ -960,6 +1031,176 @@ namespace MvcMusicStore.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Album>("MvcMusicStoreModel.FK_Album_Genre", "Album", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MvcMusicStoreModel", Name="InventoryPosition")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class InventoryPosition : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new InventoryPosition object.
+        /// </summary>
+        /// <param name="positionId">Initial value of the PositionId property.</param>
+        /// <param name="albumId">Initial value of the AlbumId property.</param>
+        public static InventoryPosition CreateInventoryPosition(global::System.Int32 positionId, global::System.Int32 albumId)
+        {
+            InventoryPosition inventoryPosition = new InventoryPosition();
+            inventoryPosition.PositionId = positionId;
+            inventoryPosition.AlbumId = albumId;
+            return inventoryPosition;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PositionId
+        {
+            get
+            {
+                return _PositionId;
+            }
+            set
+            {
+                if (_PositionId != value)
+                {
+                    OnPositionIdChanging(value);
+                    ReportPropertyChanging("PositionId");
+                    _PositionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PositionId");
+                    OnPositionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PositionId;
+        partial void OnPositionIdChanging(global::System.Int32 value);
+        partial void OnPositionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> BalanceOnHand
+        {
+            get
+            {
+                return _BalanceOnHand;
+            }
+            set
+            {
+                OnBalanceOnHandChanging(value);
+                ReportPropertyChanging("BalanceOnHand");
+                _BalanceOnHand = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BalanceOnHand");
+                OnBalanceOnHandChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _BalanceOnHand;
+        partial void OnBalanceOnHandChanging(Nullable<global::System.Int32> value);
+        partial void OnBalanceOnHandChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> BalanceOnOrder
+        {
+            get
+            {
+                return _BalanceOnOrder;
+            }
+            set
+            {
+                OnBalanceOnOrderChanging(value);
+                ReportPropertyChanging("BalanceOnOrder");
+                _BalanceOnOrder = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BalanceOnOrder");
+                OnBalanceOnOrderChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _BalanceOnOrder;
+        partial void OnBalanceOnOrderChanging(Nullable<global::System.Int32> value);
+        partial void OnBalanceOnOrderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AlbumId
+        {
+            get
+            {
+                return _AlbumId;
+            }
+            set
+            {
+                OnAlbumIdChanging(value);
+                ReportPropertyChanging("AlbumId");
+                _AlbumId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AlbumId");
+                OnAlbumIdChanged();
+            }
+        }
+        private global::System.Int32 _AlbumId;
+        partial void OnAlbumIdChanging(global::System.Int32 value);
+        partial void OnAlbumIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MvcMusicStoreModel", "FK_InventoryPositions_Album", "Album")]
+        public Album Album
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Album>("MvcMusicStoreModel.FK_InventoryPositions_Album", "Album").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Album>("MvcMusicStoreModel.FK_InventoryPositions_Album", "Album").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Album> AlbumReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Album>("MvcMusicStoreModel.FK_InventoryPositions_Album", "Album");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Album>("MvcMusicStoreModel.FK_InventoryPositions_Album", "Album", value);
                 }
             }
         }
@@ -1575,6 +1816,277 @@ namespace MvcMusicStore.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MvcMusicStoreModel", Name="ShippingNote")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ShippingNote : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ShippingNote object.
+        /// </summary>
+        /// <param name="shippingNoteId">Initial value of the ShippingNoteId property.</param>
+        public static ShippingNote CreateShippingNote(global::System.Int32 shippingNoteId)
+        {
+            ShippingNote shippingNote = new ShippingNote();
+            shippingNote.ShippingNoteId = shippingNoteId;
+            return shippingNote;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ShippingNoteId
+        {
+            get
+            {
+                return _ShippingNoteId;
+            }
+            set
+            {
+                if (_ShippingNoteId != value)
+                {
+                    OnShippingNoteIdChanging(value);
+                    ReportPropertyChanging("ShippingNoteId");
+                    _ShippingNoteId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ShippingNoteId");
+                    OnShippingNoteIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ShippingNoteId;
+        partial void OnShippingNoteIdChanging(global::System.Int32 value);
+        partial void OnShippingNoteIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String City
+        {
+            get
+            {
+                return _City;
+            }
+            set
+            {
+                OnCityChanging(value);
+                ReportPropertyChanging("City");
+                _City = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("City");
+                OnCityChanged();
+            }
+        }
+        private global::System.String _City;
+        partial void OnCityChanging(global::System.String value);
+        partial void OnCityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String State
+        {
+            get
+            {
+                return _State;
+            }
+            set
+            {
+                OnStateChanging(value);
+                ReportPropertyChanging("State");
+                _State = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("State");
+                OnStateChanged();
+            }
+        }
+        private global::System.String _State;
+        partial void OnStateChanging(global::System.String value);
+        partial void OnStateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Country
+        {
+            get
+            {
+                return _Country;
+            }
+            set
+            {
+                OnCountryChanging(value);
+                ReportPropertyChanging("Country");
+                _Country = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Country");
+                OnCountryChanged();
+            }
+        }
+        private global::System.String _Country;
+        partial void OnCountryChanging(global::System.String value);
+        partial void OnCountryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostalCode
+        {
+            get
+            {
+                return _PostalCode;
+            }
+            set
+            {
+                OnPostalCodeChanging(value);
+                ReportPropertyChanging("PostalCode");
+                _PostalCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostalCode");
+                OnPostalCodeChanged();
+            }
+        }
+        private global::System.String _PostalCode;
+        partial void OnPostalCodeChanging(global::System.String value);
+        partial void OnPostalCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ShippedQuantity
+        {
+            get
+            {
+                return _ShippedQuantity;
+            }
+            set
+            {
+                OnShippedQuantityChanging(value);
+                ReportPropertyChanging("ShippedQuantity");
+                _ShippedQuantity = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShippedQuantity");
+                OnShippedQuantityChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ShippedQuantity;
+        partial void OnShippedQuantityChanging(Nullable<global::System.Int32> value);
+        partial void OnShippedQuantityChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> BackOrderQuantity
+        {
+            get
+            {
+                return _BackOrderQuantity;
+            }
+            set
+            {
+                OnBackOrderQuantityChanging(value);
+                ReportPropertyChanging("BackOrderQuantity");
+                _BackOrderQuantity = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BackOrderQuantity");
+                OnBackOrderQuantityChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _BackOrderQuantity;
+        partial void OnBackOrderQuantityChanging(Nullable<global::System.Int32> value);
+        partial void OnBackOrderQuantityChanged();
+
+        #endregion
+    
     }
 
     #endregion

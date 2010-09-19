@@ -2,7 +2,7 @@
 
 namespace StoreCommandHandler
 {
-    public class EndpointConfig : IConfigureThisEndpoint, AsA_Server
+    public class EndpointConfig : IConfigureThisEndpoint, AsA_Publisher
     {
     }
 }

@@ -48,6 +48,9 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="OrderAcceptedEvent.cs" />
+    <Compile Include="AuthorizePaymentCommand.cs" />
+    <Compile Include="OrderPickedEvent.cs" />
+    <Compile Include="PickOrderCommand.cs" />
     <Compile Include="PlaceOrderCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

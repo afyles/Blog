@@ -13,6 +13,7 @@
           <EntitySet Name="InventoryPositions" EntityType="MvcMusicStoreModel.Store.InventoryPositions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Order" EntityType="MvcMusicStoreModel.Store.Order" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OrderDetail" EntityType="MvcMusicStoreModel.Store.OrderDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PaymentInstruments" EntityType="MvcMusicStoreModel.Store.PaymentInstruments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ShippingNotes" EntityType="MvcMusicStoreModel.Store.ShippingNotes" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK__Album__ArtistId__276EDEB3" Association="MvcMusicStoreModel.Store.FK__Album__ArtistId__276EDEB3">
             <End Role="Artist" EntitySet="Artist" />
@@ -111,6 +112,19 @@
           <Property Name="AlbumId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="UnitPrice" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="PaymentInstruments">
+          <Key>
+            <PropertyRef Name="PaymentInstrumentId" />
+          </Key>
+          <Property Name="PaymentInstrumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="160" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="160" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="160" />
+          <Property Name="PostalCode" Type="nchar" MaxLength="10" />
+          <Property Name="InstrumentNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="InstrumentType" Type="nchar" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="ShippingNotes">
           <Key>
@@ -236,6 +250,7 @@
             <End Role="Album" EntitySet="Albums" />
             <End Role="InventoryPosition" EntitySet="InventoryPositions" />
           </AssociationSet>
+          <EntitySet Name="PaymentInstruments" EntityType="MvcMusicStoreModel.PaymentInstrument" />
         </EntityContainer>
         <EntityType Name="Album">
           <Key>
@@ -413,6 +428,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PaymentInstrument">
+          <Key>
+            <PropertyRef Name="PaymentInstrumentId" />
+          </Key>
+          <Property Type="Int32" Name="PaymentInstrumentId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="InstrumentNumber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InstrumentType" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="160" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -503,6 +531,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PaymentInstruments">
+            <EntityTypeMapping TypeName="MvcMusicStoreModel.PaymentInstrument">
+              <MappingFragment StoreEntitySet="PaymentInstruments">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="InstrumentType" ColumnName="InstrumentType" />
+                <ScalarProperty Name="InstrumentNumber" ColumnName="InstrumentNumber" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PaymentInstrumentId" ColumnName="PaymentInstrumentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -526,14 +568,14 @@
       <Diagram Name="StoreDB" ZoomLevel="97">
         <EntityTypeShape EntityType="MvcMusicStoreModel.Album" Width="1.5" PointX="4.625" PointY="0.625" Height="2.941793619791667" IsExpanded="true" />
         <EntityTypeShape EntityType="MvcMusicStoreModel.Artist" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="MvcMusicStoreModel.Genre" Width="1.5" PointX="2.75" PointY="4.125" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.Genre" Width="1.5" PointX="2.75" PointY="3.125" Height="1.7879850260416657" IsExpanded="true" />
         <AssociationConnector Association="MvcMusicStoreModel.FK__Album__ArtistId__276EDEB3" ManuallyRouted="false">
           <ConnectorPoint PointX="4.25" PointY="1.5478417968749998" />
           <ConnectorPoint PointX="4.625" PointY="1.5478417968749998" />
         </AssociationConnector>
         <AssociationConnector Association="MvcMusicStoreModel.FK_Album_Genre" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.25" PointY="4.125" />
-          <ConnectorPoint PointX="4.625" PointY="3.7590950520833335" />
+          <ConnectorPoint PointX="4.25" PointY="3.4420475260416667" />
+          <ConnectorPoint PointX="4.625" PointY="3.4420475260416667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MvcMusicStoreModel.Cart" Width="1.5" PointX="4.5" PointY="4.75" Height="2.1725878906250031" />
         <AssociationConnector Association="MvcMusicStoreModel.FK_Cart_Album" >
@@ -550,12 +592,13 @@
           <ConnectorPoint PointX="7.25" PointY="3.375" />
           <ConnectorPoint PointX="7.25" PointY="2.9898893229166674" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="MvcMusicStoreModel.InventoryPosition" Width="1.75" PointX="0.625" PointY="1.625" Height="1.9802864583333317" />
-        <EntityTypeShape EntityType="MvcMusicStoreModel.ShippingNote" Width="1.5" PointX="0.5" PointY="4" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.InventoryPosition" Width="1.75" PointX="0.875" PointY="1.25" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="MvcMusicStoreModel.ShippingNote" Width="1.5" PointX="1" PointY="3.5" Height="2.9417936197916674" />
         <AssociationConnector Association="MvcMusicStoreModel.FK_InventoryPositions_Album" >
-          <ConnectorPoint PointX="4.625" PointY="3.0067350260416656" />
-          <ConnectorPoint PointX="2.375" PointY="3.0067350260416656" />
+          <ConnectorPoint PointX="4.625" PointY="2.735341796875" />
+          <ConnectorPoint PointX="2.625" PointY="2.735341796875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="MvcMusicStoreModel.PaymentInstrument" Width="1.625" PointX="2.75" PointY="5.125" Height="2.5571907552083317" />
       </Diagram>
     </Diagrams>
   </Designer>

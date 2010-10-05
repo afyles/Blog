@@ -3,7 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>C:\dev\git\blog\MvcMusicStore-v0.8\Source\StoreCommandHandler\bin\Debug\NServiceBus.Host.exe</StartProgram>
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>NServiceBus.Integration</StartArguments>
   </PropertyGroup>
 </Project>

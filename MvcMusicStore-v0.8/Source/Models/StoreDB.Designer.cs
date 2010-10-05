@@ -202,6 +202,22 @@ namespace MvcMusicStore.Models
             }
         }
         private ObjectSet<ShippingNote> _ShippingNotes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PaymentInstrument> PaymentInstruments
+        {
+            get
+            {
+                if ((_PaymentInstruments == null))
+                {
+                    _PaymentInstruments = base.CreateObjectSet<PaymentInstrument>("PaymentInstruments");
+                }
+                return _PaymentInstruments;
+            }
+        }
+        private ObjectSet<PaymentInstrument> _PaymentInstruments;
 
         #endregion
         #region AddTo Methods
@@ -268,6 +284,14 @@ namespace MvcMusicStore.Models
         public void AddToShippingNotes(ShippingNote shippingNote)
         {
             base.AddObject("ShippingNotes", shippingNote);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PaymentInstruments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPaymentInstruments(PaymentInstrument paymentInstrument)
+        {
+            base.AddObject("PaymentInstruments", paymentInstrument);
         }
 
         #endregion
@@ -1816,6 +1840,237 @@ namespace MvcMusicStore.Models
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MvcMusicStoreModel", Name="PaymentInstrument")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PaymentInstrument : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PaymentInstrument object.
+        /// </summary>
+        /// <param name="paymentInstrumentId">Initial value of the PaymentInstrumentId property.</param>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        /// <param name="firstName">Initial value of the FirstName property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="instrumentNumber">Initial value of the InstrumentNumber property.</param>
+        public static PaymentInstrument CreatePaymentInstrument(global::System.Int32 paymentInstrumentId, global::System.String userName, global::System.String firstName, global::System.String lastName, global::System.String instrumentNumber)
+        {
+            PaymentInstrument paymentInstrument = new PaymentInstrument();
+            paymentInstrument.PaymentInstrumentId = paymentInstrumentId;
+            paymentInstrument.UserName = userName;
+            paymentInstrument.FirstName = firstName;
+            paymentInstrument.LastName = lastName;
+            paymentInstrument.InstrumentNumber = instrumentNumber;
+            return paymentInstrument;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PaymentInstrumentId
+        {
+            get
+            {
+                return _PaymentInstrumentId;
+            }
+            set
+            {
+                if (_PaymentInstrumentId != value)
+                {
+                    OnPaymentInstrumentIdChanging(value);
+                    ReportPropertyChanging("PaymentInstrumentId");
+                    _PaymentInstrumentId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PaymentInstrumentId");
+                    OnPaymentInstrumentIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PaymentInstrumentId;
+        partial void OnPaymentInstrumentIdChanging(global::System.Int32 value);
+        partial void OnPaymentInstrumentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostalCode
+        {
+            get
+            {
+                return _PostalCode;
+            }
+            set
+            {
+                OnPostalCodeChanging(value);
+                ReportPropertyChanging("PostalCode");
+                _PostalCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostalCode");
+                OnPostalCodeChanged();
+            }
+        }
+        private global::System.String _PostalCode;
+        partial void OnPostalCodeChanging(global::System.String value);
+        partial void OnPostalCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String InstrumentNumber
+        {
+            get
+            {
+                return _InstrumentNumber;
+            }
+            set
+            {
+                OnInstrumentNumberChanging(value);
+                ReportPropertyChanging("InstrumentNumber");
+                _InstrumentNumber = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("InstrumentNumber");
+                OnInstrumentNumberChanged();
+            }
+        }
+        private global::System.String _InstrumentNumber;
+        partial void OnInstrumentNumberChanging(global::System.String value);
+        partial void OnInstrumentNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String InstrumentType
+        {
+            get
+            {
+                return _InstrumentType;
+            }
+            set
+            {
+                OnInstrumentTypeChanging(value);
+                ReportPropertyChanging("InstrumentType");
+                _InstrumentType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("InstrumentType");
+                OnInstrumentTypeChanged();
+            }
+        }
+        private global::System.String _InstrumentType;
+        partial void OnInstrumentTypeChanging(global::System.String value);
+        partial void OnInstrumentTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

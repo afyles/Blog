@@ -45,12 +45,18 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\References\System.Data.SQLite.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndpointConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShippingHandler.cs" />
+    <Compile Include="PickOrderHandler.cs" />
+    <Compile Include="ShippingSaga.cs" />
+    <Compile Include="ShippingSagaData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

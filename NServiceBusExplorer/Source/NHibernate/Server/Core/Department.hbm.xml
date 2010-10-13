@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Server.Core.Department, Server" table="dbo.Department">
+    <id name="Id" column="DepartmentID" type="Int16">
+      <generator class="assigned" />
+    </id>
+    <property name="Name" column="Name" type="String"/>
+    <property name="GroupName" column="GroupName" type="String"/>
+    <property name="ModifiedDate" column="ModifiedDate" type="DateTime"/>
+  </class>
+</hibernate-mapping>

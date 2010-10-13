@@ -1,0 +1,354 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{9F8E507B-F429-4184-8117-B6AB326F1CEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{8FBA0D5E-D04A-4DAB-AEB7-1D38F35CE905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publisher", "Publisher", "{973B2404-DEAC-4C0E-BC0B-2CAF7B9FB7DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Subscribers", "Subscribers", "{F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{503FA53B-E3D9-4FE8-87C9-7F80EA91A27A}"
+	ProjectSection(SolutionItems) = preProject
+		References\Castle.Core.dll = References\Castle.Core.dll
+		References\Castle.Core.pdb = References\Castle.Core.pdb
+		References\Castle.DynamicProxy2.dll = References\Castle.DynamicProxy2.dll
+		References\Castle.DynamicProxy2.pdb = References\Castle.DynamicProxy2.pdb
+		References\Castle.MicroKernel.dll = References\Castle.MicroKernel.dll
+		References\Castle.MicroKernel.pdb = References\Castle.MicroKernel.pdb
+		References\Castle.Windsor.dll = References\Castle.Windsor.dll
+		References\Castle.Windsor.pdb = References\Castle.Windsor.pdb
+		References\log4net.dll = References\log4net.dll
+		References\NServiceBus.Core.dll = References\NServiceBus.Core.dll
+		References\NServiceBus.Core.pdb = References\NServiceBus.Core.pdb
+		References\NServiceBus.dll = References\NServiceBus.dll
+		References\NServiceBus.Host.exe = References\NServiceBus.Host.exe
+		References\NServiceBus.ObjectBuilder.CastleWindsor.dll = References\NServiceBus.ObjectBuilder.CastleWindsor.dll
+		References\NServiceBus.pdb = References\NServiceBus.pdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{354B3D7A-6E27-4AC8-9BC2-B2C56D7973D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{2892D807-D920-434E-B4C4-8AD9D696D73A}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\NServiceBusDemoSolutionArchitecture.vsd = Documentation\NServiceBusDemoSolutionArchitecture.vsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distributor", "Distributor", "{3C1C4DD2-EE2A-454A-9D69-219786F3F624}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PubSub", "PubSub", "{B18E2A9E-91F7-4136-9913-B5B436B85255}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{A79929A8-9535-457A-B414-CBB2D469A395}"
+	ProjectSection(SolutionItems) = preProject
+		msmq_install.vbs = msmq_install.vbs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Distributor", "Distributor", "{EE7D39DB-66C9-40CB-92C7-E159A96E3778}"
+	ProjectSection(SolutionItems) = preProject
+		References\Distributor\Common.Logging.dll = References\Distributor\Common.Logging.dll
+		References\Distributor\log4net.dll = References\Distributor\log4net.dll
+		References\Distributor\MsmqWorkerAvailabilityManager.dll = References\Distributor\MsmqWorkerAvailabilityManager.dll
+		References\Distributor\NServiceBus.Core.dll = References\Distributor\NServiceBus.Core.dll
+		References\Distributor\NServiceBus.Distributor.dll = References\Distributor\NServiceBus.Distributor.dll
+		References\Distributor\NServiceBus.dll = References\Distributor\NServiceBus.dll
+		References\Distributor\NServiceBus.Host.exe = References\Distributor\NServiceBus.Host.exe
+		References\Distributor\NServiceBus.Unicast.Distributor.dll = References\Distributor\NServiceBus.Unicast.Distributor.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wcf", "Wcf", "{40B21D50-360B-4436-9575-83069910CFC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiles", "Profiles", "{33B0D4BE-B543-4EE5-B746-110D8346C21C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Source\Messages\Messages.csproj", "{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber1", "Source\Subscribers\Subscriber1\Subscriber1.csproj", "{28DE496A-3885-410E-A0B8-004FAEFF9378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber2", "Source\Subscribers\Subscriber2\Subscriber2.csproj", "{6A699A4E-F2FD-4B71-AF73-199B499482BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusServer", "Source\Server\BusServer\BusServer.csproj", "{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages.New", "source\Messages\Messages.New\Messages.New.csproj", "{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber3", "source\Subscribers\Subscriber3\Subscriber3.csproj", "{45A0BB70-4D40-4043-9CC2-B5E33E3157E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchiveSubscriber", "Source\Subscribers\ArchiveSubscriber\ArchiveSubscriber.csproj", "{D78148FD-D7D4-42C5-B37A-9770793E7D19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "Source\UI\UI.csproj", "{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker1", "Source\Workers\Worker1\Worker1.csproj", "{7FD9A462-5A74-457E-9408-F1FD014E8BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributorClient", "Source\Distributor\DistributorClient\DistributorClient.csproj", "{33744F4D-863F-46F8-96EB-3D2562FC23A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distributor", "Source\Distributor\Distributor\Distributor.csproj", "{2C0F1F88-E786-4629-B2F1-298CE1123326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker2", "Source\Workers\Worker2\Worker2.csproj", "{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServer", "source\WCF\WcfServer\WcfServer.csproj", "{EEDA53DA-B025-482D-BDE5-62F03F7894B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Profiles", "Source\Profiles\Profiles\Profiles.csproj", "{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NHibernate", "NHibernate", "{8EF6C1F4-4DAC-4F51-8689-E790BA101C7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Source\NHibernate\Client\Client.csproj", "{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Source\NHibernate\Server\Server.csproj", "{4B686741-56B9-4FBC-B940-B8490E3A8E1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NHibernate", "NHibernate", "{6A27A43F-877E-4425-BBC1-355A133C3C96}"
+	ProjectSection(SolutionItems) = preProject
+		References\Antlr3.Runtime.dll = References\Antlr3.Runtime.dll
+		References\FluentNHibernate.dll = References\FluentNHibernate.dll
+		References\FluentNHibernate.pdb = References\FluentNHibernate.pdb
+		References\Iesi.Collections.dll = References\Iesi.Collections.dll
+		References\NHibernate.dll = References\NHibernate.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{35E0CDE5-7233-46C5-AF30-C5CA93D2FBAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fixtures", "Tests\Fixtures\Fixtures.csproj", "{63B55067-83C8-4738-8B6D-DDA17108BAEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{323AAD53-080D-4F24-A104-DB9C8E459F56}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		NServiceBusExplorer.vsmdi = NServiceBusExplorer.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{3FA3CE3B-620D-4F99-8F57-DC89C123DFD2}"
+	ProjectSection(SolutionItems) = preProject
+		References\Testing\NServiceBus.Core.dll = References\Testing\NServiceBus.Core.dll
+		References\Testing\NServiceBus.Core.pdb = References\Testing\NServiceBus.Core.pdb
+		References\Testing\NServiceBus.dll = References\Testing\NServiceBus.dll
+		References\Testing\NServiceBus.pdb = References\Testing\NServiceBus.pdb
+		References\Testing\NServiceBus.Testing.dll = References\Testing\NServiceBus.Testing.dll
+		References\Testing\NServiceBus.Testing.pdb = References\Testing\NServiceBus.Testing.pdb
+		References\Testing\Rhino.Mocks.dll = References\Testing\Rhino.Mocks.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestResponse", "RequestResponse", "{9ADB2E57-8C6E-421A-952D-66BB0100FC38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Source\RequestResponse\Client\Client.csproj", "{5CA25F83-D995-4522-8184-82DDB827548E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Source\RequestResponse\Server\Server.csproj", "{A9640EAB-75E0-4593-B9D4-395B46605BAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scheduling", "Scheduling", "{C04FBF17-F737-4346-9A97-DBD6A6573834}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduling", "Source\Scheduling\Scheduling.csproj", "{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 21
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.wegmans.com:8443/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Source\\Messages\\Messages.csproj
+		SccProjectTopLevelParentUniqueName1 = NServiceBusExplorer.sln
+		SccProjectName1 = Source/Messages
+		SccLocalPath1 = Source\\Messages
+		SccProjectUniqueName2 = Source\\Subscribers\\Subscriber1\\Subscriber1.csproj
+		SccProjectTopLevelParentUniqueName2 = NServiceBusExplorer.sln
+		SccProjectName2 = Source/Subscribers/Subscriber1
+		SccLocalPath2 = Source\\Subscribers\\Subscriber1
+		SccProjectUniqueName3 = Source\\Subscribers\\Subscriber2\\Subscriber2.csproj
+		SccProjectTopLevelParentUniqueName3 = NServiceBusExplorer.sln
+		SccProjectName3 = Source/Subscribers/Subscriber2
+		SccLocalPath3 = Source\\Subscribers\\Subscriber2
+		SccProjectUniqueName4 = Source\\Server\\BusServer\\BusServer.csproj
+		SccProjectTopLevelParentUniqueName4 = NServiceBusExplorer.sln
+		SccProjectName4 = Source/Server/BusServer
+		SccLocalPath4 = Source\\Server\\BusServer
+		SccProjectUniqueName5 = source\\Messages\\Messages.New\\Messages.New.csproj
+		SccProjectTopLevelParentUniqueName5 = NServiceBusExplorer.sln
+		SccProjectName5 = source/Messages/Messages.New
+		SccLocalPath5 = source\\Messages\\Messages.New
+		SccProjectUniqueName6 = source\\Subscribers\\Subscriber3\\Subscriber3.csproj
+		SccProjectTopLevelParentUniqueName6 = NServiceBusExplorer.sln
+		SccProjectName6 = source/Subscribers/Subscriber3
+		SccLocalPath6 = source\\Subscribers\\Subscriber3
+		SccProjectUniqueName7 = Source\\Subscribers\\ArchiveSubscriber\\ArchiveSubscriber.csproj
+		SccProjectTopLevelParentUniqueName7 = NServiceBusExplorer.sln
+		SccProjectName7 = Source/Subscribers/ArchiveSubscriber
+		SccLocalPath7 = Source\\Subscribers\\ArchiveSubscriber
+		SccProjectUniqueName8 = Source\\UI\\UI.csproj
+		SccProjectTopLevelParentUniqueName8 = NServiceBusExplorer.sln
+		SccProjectName8 = Source/UI
+		SccLocalPath8 = Source\\UI
+		SccProjectUniqueName9 = Source\\Workers\\Worker1\\Worker1.csproj
+		SccProjectTopLevelParentUniqueName9 = NServiceBusExplorer.sln
+		SccProjectName9 = Source/Workers/Worker1
+		SccLocalPath9 = Source\\Workers\\Worker1
+		SccProjectUniqueName10 = Source\\Distributor\\DistributorClient\\DistributorClient.csproj
+		SccProjectTopLevelParentUniqueName10 = NServiceBusExplorer.sln
+		SccProjectName10 = Source/Distributor/DistributorClient
+		SccLocalPath10 = Source\\Distributor\\DistributorClient
+		SccProjectUniqueName11 = Source\\Distributor\\Distributor\\Distributor.csproj
+		SccProjectTopLevelParentUniqueName11 = NServiceBusExplorer.sln
+		SccProjectName11 = Source/Distributor/Distributor
+		SccLocalPath11 = Source\\Distributor\\Distributor
+		SccProjectUniqueName12 = Source\\Workers\\Worker2\\Worker2.csproj
+		SccProjectTopLevelParentUniqueName12 = NServiceBusExplorer.sln
+		SccProjectName12 = Source/Workers/Worker2
+		SccLocalPath12 = Source\\Workers\\Worker2
+		SccProjectUniqueName13 = source\\WCF\\WcfServer\\WcfServer.csproj
+		SccProjectTopLevelParentUniqueName13 = NServiceBusExplorer.sln
+		SccProjectName13 = source/WCF/WcfServer
+		SccLocalPath13 = source\\WCF\\WcfServer
+		SccProjectUniqueName14 = Source\\Profiles\\Profiles\\Profiles.csproj
+		SccProjectTopLevelParentUniqueName14 = NServiceBusExplorer.sln
+		SccProjectName14 = Source/Profiles/Profiles
+		SccLocalPath14 = Source\\Profiles\\Profiles
+		SccProjectUniqueName15 = Source\\NHibernate\\Client\\Client.csproj
+		SccProjectTopLevelParentUniqueName15 = NServiceBusExplorer.sln
+		SccProjectName15 = Source/NHibernate/Client
+		SccLocalPath15 = Source\\NHibernate\\Client
+		SccProjectUniqueName16 = Source\\NHibernate\\Server\\Server.csproj
+		SccProjectTopLevelParentUniqueName16 = NServiceBusExplorer.sln
+		SccProjectName16 = Source/NHibernate/Server
+		SccLocalPath16 = Source\\NHibernate\\Server
+		SccProjectUniqueName17 = Tests\\Fixtures\\Fixtures.csproj
+		SccProjectTopLevelParentUniqueName17 = NServiceBusExplorer.sln
+		SccProjectName17 = Tests/Fixtures
+		SccLocalPath17 = Tests\\Fixtures
+		SccProjectUniqueName18 = Source\\Scheduling\\Scheduling.csproj
+		SccProjectTopLevelParentUniqueName18 = NServiceBusExplorer.sln
+		SccProjectName18 = Source/Scheduling
+		SccLocalPath18 = Source\\Scheduling
+		SccProjectUniqueName19 = Source\\RequestResponse\\Client\\Client.csproj
+		SccProjectTopLevelParentUniqueName19 = NServiceBusExplorer.sln
+		SccProjectName19 = Source/RequestResponse/Client
+		SccLocalPath19 = Source\\RequestResponse\\Client
+		SccProjectUniqueName20 = Source\\RequestResponse\\Server\\Server.csproj
+		SccProjectTopLevelParentUniqueName20 = NServiceBusExplorer.sln
+		SccProjectName20 = Source/RequestResponse/Server
+		SccLocalPath20 = Source\\RequestResponse\\Server
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = NServiceBusExplorer.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28DE496A-3885-410E-A0B8-004FAEFF9378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DE496A-3885-410E-A0B8-004FAEFF9378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DE496A-3885-410E-A0B8-004FAEFF9378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DE496A-3885-410E-A0B8-004FAEFF9378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A699A4E-F2FD-4B71-AF73-199B499482BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A699A4E-F2FD-4B71-AF73-199B499482BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A699A4E-F2FD-4B71-AF73-199B499482BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A699A4E-F2FD-4B71-AF73-199B499482BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A0BB70-4D40-4043-9CC2-B5E33E3157E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A0BB70-4D40-4043-9CC2-B5E33E3157E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A0BB70-4D40-4043-9CC2-B5E33E3157E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A0BB70-4D40-4043-9CC2-B5E33E3157E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78148FD-D7D4-42C5-B37A-9770793E7D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78148FD-D7D4-42C5-B37A-9770793E7D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78148FD-D7D4-42C5-B37A-9770793E7D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78148FD-D7D4-42C5-B37A-9770793E7D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD9A462-5A74-457E-9408-F1FD014E8BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD9A462-5A74-457E-9408-F1FD014E8BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD9A462-5A74-457E-9408-F1FD014E8BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD9A462-5A74-457E-9408-F1FD014E8BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33744F4D-863F-46F8-96EB-3D2562FC23A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33744F4D-863F-46F8-96EB-3D2562FC23A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33744F4D-863F-46F8-96EB-3D2562FC23A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33744F4D-863F-46F8-96EB-3D2562FC23A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0F1F88-E786-4629-B2F1-298CE1123326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0F1F88-E786-4629-B2F1-298CE1123326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0F1F88-E786-4629-B2F1-298CE1123326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0F1F88-E786-4629-B2F1-298CE1123326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDA53DA-B025-482D-BDE5-62F03F7894B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDA53DA-B025-482D-BDE5-62F03F7894B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDA53DA-B025-482D-BDE5-62F03F7894B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDA53DA-B025-482D-BDE5-62F03F7894B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B686741-56B9-4FBC-B940-B8490E3A8E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B686741-56B9-4FBC-B940-B8490E3A8E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B686741-56B9-4FBC-B940-B8490E3A8E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B686741-56B9-4FBC-B940-B8490E3A8E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63B55067-83C8-4738-8B6D-DDA17108BAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63B55067-83C8-4738-8B6D-DDA17108BAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63B55067-83C8-4738-8B6D-DDA17108BAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63B55067-83C8-4738-8B6D-DDA17108BAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA25F83-D995-4522-8184-82DDB827548E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA25F83-D995-4522-8184-82DDB827548E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA25F83-D995-4522-8184-82DDB827548E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA25F83-D995-4522-8184-82DDB827548E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9640EAB-75E0-4593-B9D4-395B46605BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9640EAB-75E0-4593-B9D4-395B46605BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9640EAB-75E0-4593-B9D4-395B46605BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9640EAB-75E0-4593-B9D4-395B46605BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FBA0D5E-D04A-4DAB-AEB7-1D38F35CE905} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{B18E2A9E-91F7-4136-9913-B5B436B85255} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{3C1C4DD2-EE2A-454A-9D69-219786F3F624} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{40B21D50-360B-4436-9575-83069910CFC5} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{33B0D4BE-B543-4EE5-B746-110D8346C21C} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{8EF6C1F4-4DAC-4F51-8689-E790BA101C7D} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{9ADB2E57-8C6E-421A-952D-66BB0100FC38} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{C04FBF17-F737-4346-9A97-DBD6A6573834} = {9F8E507B-F429-4184-8117-B6AB326F1CEB}
+		{5686FE6C-A5E3-40D1-A6BD-25F94DA612F8} = {8FBA0D5E-D04A-4DAB-AEB7-1D38F35CE905}
+		{44EDAB66-665C-4A41-98BD-0AAFF28D0AF5} = {8FBA0D5E-D04A-4DAB-AEB7-1D38F35CE905}
+		{F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762} = {B18E2A9E-91F7-4136-9913-B5B436B85255}
+		{354B3D7A-6E27-4AC8-9BC2-B2C56D7973D3} = {B18E2A9E-91F7-4136-9913-B5B436B85255}
+		{973B2404-DEAC-4C0E-BC0B-2CAF7B9FB7DD} = {B18E2A9E-91F7-4136-9913-B5B436B85255}
+		{28DE496A-3885-410E-A0B8-004FAEFF9378} = {F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762}
+		{6A699A4E-F2FD-4B71-AF73-199B499482BD} = {F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762}
+		{45A0BB70-4D40-4043-9CC2-B5E33E3157E6} = {F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762}
+		{D78148FD-D7D4-42C5-B37A-9770793E7D19} = {F4F30F85-5C6D-4263-BDB8-8D0F0C6EF762}
+		{EE7D39DB-66C9-40CB-92C7-E159A96E3778} = {503FA53B-E3D9-4FE8-87C9-7F80EA91A27A}
+		{6A27A43F-877E-4425-BBC1-355A133C3C96} = {503FA53B-E3D9-4FE8-87C9-7F80EA91A27A}
+		{3FA3CE3B-620D-4F99-8F57-DC89C123DFD2} = {503FA53B-E3D9-4FE8-87C9-7F80EA91A27A}
+		{2430E9F6-CD3F-4EA3-BA8E-5AC8C3EF7CD8} = {354B3D7A-6E27-4AC8-9BC2-B2C56D7973D3}
+		{7FD9A462-5A74-457E-9408-F1FD014E8BFC} = {3C1C4DD2-EE2A-454A-9D69-219786F3F624}
+		{33744F4D-863F-46F8-96EB-3D2562FC23A3} = {3C1C4DD2-EE2A-454A-9D69-219786F3F624}
+		{2C0F1F88-E786-4629-B2F1-298CE1123326} = {3C1C4DD2-EE2A-454A-9D69-219786F3F624}
+		{C23FD9DB-DB97-4DC9-A9D7-0FCC4D9121B6} = {3C1C4DD2-EE2A-454A-9D69-219786F3F624}
+		{C4A5BD55-4F4B-4297-A0D0-7E5CFE5F1382} = {973B2404-DEAC-4C0E-BC0B-2CAF7B9FB7DD}
+		{EEDA53DA-B025-482D-BDE5-62F03F7894B6} = {40B21D50-360B-4436-9575-83069910CFC5}
+		{7B0FD3FC-1A49-436E-AD8B-D48FED5CABCD} = {33B0D4BE-B543-4EE5-B746-110D8346C21C}
+		{9E159BBE-9983-42FD-AE3F-D321DFC3BCD7} = {8EF6C1F4-4DAC-4F51-8689-E790BA101C7D}
+		{4B686741-56B9-4FBC-B940-B8490E3A8E1B} = {8EF6C1F4-4DAC-4F51-8689-E790BA101C7D}
+		{63B55067-83C8-4738-8B6D-DDA17108BAEB} = {35E0CDE5-7233-46C5-AF30-C5CA93D2FBAD}
+		{323AAD53-080D-4F24-A104-DB9C8E459F56} = {35E0CDE5-7233-46C5-AF30-C5CA93D2FBAD}
+		{5CA25F83-D995-4522-8184-82DDB827548E} = {9ADB2E57-8C6E-421A-952D-66BB0100FC38}
+		{A9640EAB-75E0-4593-B9D4-395B46605BAA} = {9ADB2E57-8C6E-421A-952D-66BB0100FC38}
+		{0C2260F3-FDAB-4DEB-A98D-587A4F3715D8} = {C04FBF17-F737-4346-9A97-DBD6A6573834}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Messages.ProductCreatedMessage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAiAAAAAAAAAAQAAAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>ProductCreatedMessage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Messages.ProductUpdatedMessage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAiAAAAAAAAAAQAAAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>ProductUpdatedMessage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Messages.ProductRemovedMessage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAiAAAAAAAAAAQAAAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>ProductRemovedMessage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Messages.IEvent">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>IEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Messages.IProductChangedEvent">
+    <Position X="3" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>IProductChangedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Messages.IProductCreatedEvent" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IProductCreatedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Messages.IProductRemovedEvent" Collapsed="true">
+    <Position X="3" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IProductRemovedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Messages.IProductUpdatedEvent" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IProductUpdatedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

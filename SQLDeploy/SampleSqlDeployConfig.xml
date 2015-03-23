@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="MyProject" server="MyDb" instance="Default" path="RootPath" database="DBName">
+<integrationServices>
+<environments>
+    <environment name="Cert" description="" />
+	<environment name="Test" description="">
+		<variables>
+			<variable name="My_ConnectionString" type="String" description="" value="Data Source=Server;Initial Catalog=DB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" sensitive="false" />
+		</variables>
+	</environment>
+</environments>
+<!-- Mapping of package parameters to Environment variables -->
+<parameters>
+	<parameter name="My_ConnectionString" variable="My_ConnectionString" />
+</parameters>
+</integrationServices>
+</project>

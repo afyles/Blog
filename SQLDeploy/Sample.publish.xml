@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="MyName" server="MyServer" instance="Default" database="MyDb">
+  <options>
+    <option name="BlockOnPossibleDataLoss" value="True" />
+  </options>
+  <variables>
+    <variable name="X" value="Y" />
+  </variables>
+</project>
